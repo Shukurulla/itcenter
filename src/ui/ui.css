@@ -1,0 +1,15 @@
+.ui__btn-green {
+  padding: 7px 20px;
+  border: none;
+  border-radius: 5px;
+  border: 2px solid #7dba28;
+  color: #7dba28;
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.4s ease;
+}
+.ui__btn-green:hover {
+  background-color: #7dba28;
+  color: #fff;
+}

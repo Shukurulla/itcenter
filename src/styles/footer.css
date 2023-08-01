@@ -1,0 +1,15 @@
+footer {
+  background-color: #7dba28;
+  padding: 20px 0;
+  color: #fff;
+  box-shadow: 0px 0px 15px #d6d4d4a8;
+}
+footer ul {
+  padding: 0;
+}
+footer ul li {
+  margin-top: 5px;
+}
+footer ul li a {
+  color: #fff;
+}
