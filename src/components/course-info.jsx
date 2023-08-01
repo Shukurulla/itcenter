@@ -2,9 +2,9 @@ import React from "react";
 
 const CourseInfo = ({ icon, color, title, description }) => {
   return (
-    <div className="course-info">
+    <div className="course-info text-center">
       <div className="course-icon" style={{ backgroundColor: color }}>
-        {icon}
+        <i className={`${icon}`}></i>
       </div>
       <div className="info">
         <h3>{title}</h3>

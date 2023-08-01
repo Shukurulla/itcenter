@@ -3,6 +3,7 @@ import { homeImage } from "../constants";
 import { Button } from "../ui";
 
 const Home = () => {
+  document.title = "Xojeli IT Center";
   return (
     <div className="home container py-5">
       <div className="row py-5 align-items-center">
