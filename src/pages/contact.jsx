@@ -4,23 +4,43 @@ import '../styles/contact.css'
 import { courses } from "../constants";
 import Button from "../ui/button";
 import { Context } from "../context";
+import {useNavigate} from 'react-router-dom'
+
 const Contact = () => {
 
   document.title = "IT Center | Kontact";
 
   
+  const [couseIndex,setCourseIndex] = useState(0)
   const [name, setName] = useState('')
   const [tel, setTel] = useState('')
+  const [course,setCourse] = useState('Android')
   
-  const [couseIndex,setCourseIndex] = useState(0)
   const [open,setOpen] = useState(false)
-  
+  const navigate = useNavigate()
+
   const {setActive} = useContext(Context)
   useEffect(() => {
     setActive(3)
   }, [])
+
+  
+
+  const postUser = (e) => {
+    e.preventDefault()
+      fetch('http://localhost:3000/users', {
+        method: "POST",
+        headers: {
+          'Content-Type': "application/json"
+        },
+        body: JSON.stringify({user: {name, tel,course,date: new Date()}})
+      })
+      navigate('/')
+  }
+
   return <div className="container py-5">
     <h2 className="text-center py-3">Contact</h2>
+    
     <div className="row align-items-center">
       <div className="col-lg-5 col-md-12">
         <div className="retseption-box">
@@ -56,17 +76,17 @@ const Contact = () => {
       <div className="col-lg-7 col-md-12">
         <div className="form-box">
           <h3>Yozilmoqchi bo'lgan kursni belgilang</h3>
-          <form >
+          <form onSubmit={(e) => postUser(e)}>
             <div className="row">
               <div className="col-lg-6 col-md-6 col-sm-6 col-12">
-                <input className="w-100" type="text" name="name" placeholder="Ismingizni kiriting" value={name} onChange={(e) => setName(e.target.value)} id="" />
+                <input className="w-100" required type="text" name="name" placeholder="Ismingizni kiriting" value={name} onChange={(e) => setName(e.target.value)} id="" />
               </div>
               <div className="col-lg-6 col-md-6 col-sm-6 col-12">
-                <input className="w-100" type="text" name="tel" placeholder="Telefon raqamingizni kiriting" value={tel} onChange={(e) => setTel(e.target.value)} id="" />
+                <input className="w-100" required type="text" name="tel" placeholder="Telefon raqamingizni kiriting" value={tel} onChange={(e) => setTel(e.target.value)} id="" />
               </div>
             </div>
             <div className="selection-course">
-              <div className="seletced-course" onClick={() => setOpen(!open)}> 
+              <div className="seletced-course" onClick={() => setOpen(!open) }> 
                 <p className="m-0">{ courses[couseIndex].name }</p>
                 <i className="bi bi-chevron-down"></i>
               </div>
@@ -80,6 +100,7 @@ const Contact = () => {
                       <li key={item.name} onClick={() => {
                         setCourseIndex(idx)
                         setOpen(!open)
+                        setCourse(courses[idx].name)
                       }}>{item.name}</li>
                     ))
                   }
