@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { courses } from "../constants";
 import { CourseBox } from "../components";
+import { Context } from "../context";
 
 const Courses = () => {
+
   document.title = "IT Center | Kurslar";
+
+  const {setActive} = useContext(Context)
+  useEffect(() => {
+    setActive(2)
+  }, [])
+
   return (
     <div className="container py-5">
       <h2 className="text-center">Kurslar</h2>

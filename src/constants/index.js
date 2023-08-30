@@ -25,6 +25,8 @@ export const homeImage =
 export const aboutImage =
   "https://xojelitcenter.netlify.app/image/about-img.png";
 
+  export const operatorImg = 'https://cdni.iconscout.com/illustration/premium/thumb/contact-us-3483601-2912018.png'
+
 export const courseInfo = [
   {
     title: "450",
@@ -70,7 +72,7 @@ export const teams = [
     },
   },
   {
-    name: "Tursinbayev Shukurulla",
+    name: "Nurullayev Samandar",
     job: "Front End (Web Dasturlash)",
     image:
       "https://images.pexels.com/photos/874158/pexels-photo-874158.jpeg?auto=compress&cs=tinysrgb&w=400",
@@ -176,7 +178,7 @@ export const courses = [
     brief_info:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit odio repellendus libero. Illo, autem",
     info: "Dasturlashni endigina boshlovchilar yoki shu sohaga qiziquvchilar qaysi yo'nalishni tanlash kerak va uning yaqin kelajagi qanday degan savol qiziqtiradi. Albatta, tanlangan yo'nalish jamiyatga foydasi tegadigan, kelajagi bor va eng muhimi yuqori daromadga olib keladigan bo'lishi kerak. Hozirgi kunda dunyo aholisining deyarli barchasi mobil qurilmalarga ega ekanligi hammaga ma'lum. Bu qurilmalarning juda katta qismi Android operatsion tizimida ishlaydi. Statistik ma'lumotlarga qaraganda, aqlli qurilmalar(smart devices)ning 80% dan ortiq qismi Android tizimida ishlaydi. Android tizimi keng imkoniyatli, dasturchilarga qulay, bepul va albatta ochiq kodlidir.",
-    mentor: "Tursinbayev Shukurulla",
+    mentor: "Nurullayev Samandar",
     course: "Offline",
     duration: "6oy-9oy",
     sertificat: "Mavjud",
@@ -192,7 +194,7 @@ export const courses = [
     brief_info:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit odio repellendus libero. Illo, autem",
     info: "Dasturlashni endigina boshlovchilar yoki shu sohaga qiziquvchilar qaysi yo'nalishni tanlash kerak va uning yaqin kelajagi qanday degan savol qiziqtiradi. Albatta, tanlangan yo'nalish jamiyatga foydasi tegadigan, kelajagi bor va eng muhimi yuqori daromadga olib keladigan bo'lishi kerak. Hozirgi kunda dunyo aholisining deyarli barchasi mobil qurilmalarga ega ekanligi hammaga ma'lum. Bu qurilmalarning juda katta qismi Android operatsion tizimida ishlaydi. Statistik ma'lumotlarga qaraganda, aqlli qurilmalar(smart devices)ning 80% dan ortiq qismi Android tizimida ishlaydi. Android tizimi keng imkoniyatli, dasturchilarga qulay, bepul va albatta ochiq kodlidir.",
-    mentor: "Nurillaev Samandar",
+    mentor: "Nurullaev Samandar",
     course: "Offline",
     duration: "6oy-9oy",
     sertificat: "Mavjud",

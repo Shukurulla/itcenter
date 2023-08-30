@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { logo, navItems } from "../constants";
 import "../styles/header.css";
+import { Context } from "../context";
 
 const Header = () => {
-  const [active, setActive] = useState(0);
+  const {active,setActive} = useContext(Context)
   return (
     <header>
       <nav className="container">

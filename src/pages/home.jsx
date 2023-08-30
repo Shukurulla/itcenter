@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { homeImage } from "../constants";
 import { Button } from "../ui";
+import { Context } from "../context";
 
 const Home = () => {
   document.title = "Xojeli IT Center";
+  const {setActive} = useContext(Context)
+  useEffect(() => {
+    setActive(0)
+  }, [])
   return (
     <div className="home container py-5">
       <div className="row py-5 align-items-center">

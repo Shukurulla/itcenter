@@ -30,17 +30,17 @@ const Footer = () => {
             <ul>
               <li>
                 <a href="tel:+998901234567">
-                  <i class="bi bi-phone"></i> Telefon: +998 91 123 45 67
+                  <i className="bi bi-phone"></i> Telefon: +998 91 123 45 67
                 </a>
               </li>
               <li>
                 <a href="mailto:example@gmail.com">
-                  <i class="bi bi-envelope"></i> Gmail: example@gmail.com
+                  <i className="bi bi-envelope"></i> Gmail: example@gmail.com
                 </a>
               </li>
               <li>
                 <a href="https://goo.gl/maps/Nv1biWyfVKdQWaAr5">
-                  <i class="bi bi-geo-alt"></i> Manzil: Pochta Binosi
+                  <i className="bi bi-geo-alt"></i> Manzil: Pochta Binosi
                 </a>
               </li>
             </ul>

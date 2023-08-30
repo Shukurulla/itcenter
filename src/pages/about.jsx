@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { CourseInfo, TeamBox } from "../components";
 import { aboutImage, courseInfo, teams } from "../constants";
+import { Context } from "../context";
 
 const About = () => {
   document.title = "IT Center | About";
+
+  const {setActive} = useContext(Context)
+  useEffect(() => {
+    setActive(1)
+  }, [])
 
   return (
     <>

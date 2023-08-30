@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { courses } from "../constants";
 import { Button } from "../ui";
+import { Context } from "../context";
 
 const Course = () => {
   const { slug } = useParams();
@@ -16,6 +17,11 @@ const Course = () => {
     document.title = `${name} kursi`;
     setShowMenu(!showMenu);
   };
+
+  const {setActive} = useContext(Context)
+  useEffect(() => {
+    setActive(2)
+  }, [])
 
   return (
     <div className="course py-5">
