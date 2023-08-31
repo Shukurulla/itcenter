@@ -1,36 +1,62 @@
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { homeImage } from "../constants";
 import { Button } from "../ui";
 import { Context } from "../context";
+import "../styles/home.css";
+import { courses } from "../constants";
+import CourseBox from "../components/course-box";
 
 const Home = () => {
   document.title = "Xojeli IT Center";
-  const {setActive} = useContext(Context)
+
+  const { setActive } = useContext(Context);
+  const [course, setCourse] = useState([]);
+
   useEffect(() => {
-    setActive(0)
-  }, [])
+    setActive(0);
+    setCourse(courses.slice(0, 3));
+  }, []);
   return (
-    <div className="home container py-5">
-      <div className="row py-5 align-items-center">
-        <div className="col-lg-6 col-md-12">
-          <div className="home-about">
-            <h2>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex?
-            </h2>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto
-              dolorem quo necessitatibus totam mollitia!
-            </p>
-            <Button>Learn More</Button>
+    <>
+      <div className="home container py-5">
+        <div className="row py-5 align-items-center ">
+          <div className="col-lg-6 col-md-12">
+            <div className="home-about">
+              <h2>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex?
+              </h2>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto
+                dolorem quo necessitatibus totam mollitia!
+              </p>
+              <Button>Learn More</Button>
+            </div>
           </div>
-        </div>
-        <div className="col-lg-6 col-md-12">
-          <div className="home-image">
-            <img className="w-100" src={homeImage} alt="" />
+          <div className="col-lg-6 col-md-12 d-flex justify-content-center">
+            <div className="home-image">
+              <img className="w-100" src={homeImage} alt="" />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <div className="popular-courses py-5">
+        <div className="container py-5">
+          <h2 className="text-center mb-3">Mashhur kurslarimiz</h2>
+          <div className="row">
+            {course.map((item) => (
+              <div className="col-lg-4 col-md-6 col-sm-12" key={item.name}>
+                <CourseBox
+                  image={item.image}
+                  courseName={item.name}
+                  briefInfo={item.brief_info}
+                  slug={item.slug}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 

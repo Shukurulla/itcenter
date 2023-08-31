@@ -5,7 +5,9 @@ import "../styles/header.css";
 import { Context } from "../context";
 
 const Header = () => {
-  const {active,setActive} = useContext(Context)
+  const { active, setActive } = useContext(Context);
+  const [show, setShow] = useState(false);
+
   return (
     <header>
       <nav className="container">
@@ -14,10 +16,16 @@ const Header = () => {
             <img src={logo} alt="" />
           </Link>
         </div>
-        <div className="navigation">
+        <i className="bi bi-list" onClick={() => setShow(true)}></i>
+        <div className={`navigation ${show ? "show" : ""}`}>
           <ul className="navigation__list">
+            <i className="bi bi-x-lg" onClick={() => setShow(false)}></i>
             {navItems.map((item, idx) => (
-              <li key={item.label} className="navigation__list-item">
+              <li
+                key={item.label}
+                onClick={() => setShow(false)}
+                className="navigation__list-item"
+              >
                 <Link
                   to={item.path}
                   className={`${active === idx ? "active" : ""}`}

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { CourseInfo, TeamBox } from "../components";
 import { aboutImage, courseInfo, teams } from "../constants";
 import { Context } from "../context";
@@ -6,10 +6,10 @@ import { Context } from "../context";
 const About = () => {
   document.title = "IT Center | About";
 
-  const {setActive} = useContext(Context)
+  const { setActive } = useContext(Context);
   useEffect(() => {
-    setActive(1)
-  }, [])
+    setActive(1);
+  }, []);
 
   return (
     <>
@@ -27,9 +27,12 @@ const About = () => {
               officia ab eius sit nulla mollitia illo, nisi debitis corrupti
               molestias.
             </p>
-            <div className="row py-4">
+            <div className="row py-4  ">
               {courseInfo.map((item) => (
-                <div className="col-lg-4 col-md-4 col-sm-4">
+                <div
+                  className="col-lg-4  col-md-4 col-sm-4  mt-3"
+                  key={item.title}
+                >
                   <CourseInfo
                     key={item.title}
                     title={item.title}
@@ -48,7 +51,10 @@ const About = () => {
           <h2 className="py-3"> Meet Our Team</h2>
           <div className="row justify-content-center">
             {teams.map((item) => (
-              <div className="col-lg-3 col-md-6 col-sm-12 my-3">
+              <div
+                className="col-lg-3 col-md-6 col-sm-12 my-3"
+                key={item.image}
+              >
                 <TeamBox
                   name={item.name}
                   job={item.job}

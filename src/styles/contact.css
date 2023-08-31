@@ -1,71 +1,77 @@
-.retseption-box{
-    background-color: #7dba28;
-    padding: 30px;
-    border-radius: 15px;
-    color: #fff;
+.retseption-box {
+  background-color: #7dba28;
+  padding: 30px;
+  border-radius: 15px;
+  color: #fff;
 }
-.retseption-box a{
-    color: #fff;
+.retseption-box a {
+  color: #fff;
 }
-.retseption-box li{
-    margin-top: 10px;
-}
-.form-box{
-    box-shadow: 0 0 24px #0000001f;
-    padding: 30px;
-    border-radius: 15px;
-}
-.form-box h3{
-    margin-bottom: 15px;
 
+.retseption-box li {
+  margin-top: 10px;
 }
-.form-box input{
-    padding: 5px 10px;
-    outline: none;
-    border: 1px solid #333;
-    color: #444;
+.form-box {
+  box-shadow: 0 0 24px #0000001f;
+  padding: 30px;
+  border-radius: 15px;
 }
-.form-box input:focus{
-    border: 1px solid #7dba28;
+.form-box h3 {
+  margin-bottom: 15px;
 }
-.selection-course{
-    position: relative;
-    margin-top: 20px;
+.form-box input {
+  padding: 5px 10px;
+  outline: none;
+  border: 1px solid #333;
+  color: #444;
 }
-.seletced-course{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px 0;
-    font-size: 20px;
-    font-weight: 500;
-    cursor: pointer;
+.form-box input:focus {
+  border: 1px solid #7dba28;
 }
-.select-course{
-    width: 100%;
-    background-color: #7dba28;
-    color: #fff;
-    padding: 10px;
-    position: absolute;
-    top: 0;
-    left: 0;
+.selection-course {
+  position: relative;
+  margin-top: 20px;
+}
+.seletced-course {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.select-course {
+  width: 100%;
+  background-color: #7dba28;
+  color: #fff;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.select-course li {
+  margin-top: 10px;
+  cursor: pointer;
+}
+.selected-course-info {
+  margin-bottom: 20px;
+}
+.info-item {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 19px;
+  text-align: end;
+}
+.info-item span {
+  font-size: 17px;
+}
 
-}
-.select-course li{
+/* Media Query */
+@media (max-width: 576px) {
+  .form-box input {
     margin-top: 10px;
-    cursor: pointer;
-}
-.selected-course-info{
-    margin-bottom: 20px;
-}
-.info-item{
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 19px;
-    text-align: end;
-}
-.info-item span{
-    font-size: 17px;
+  }
 }

@@ -27,7 +27,7 @@ const Course = () => {
     <div className="course py-5">
       <div className="container py-5">
         {course.map((item) => (
-          <div className="row">
+          <div className="row" key={item.name}>
             <div className="col-lg-7 col-md-7 col-sm-12">
               <div className="course-nav">
                 <div
@@ -58,7 +58,7 @@ const Course = () => {
               <small>{item.info}</small>
               <hr />
               <h4 className="d-flex justify-content-between fw-bold">
-                <span>O'qituvchi:</span>
+                <span>O`qituvchi:</span>
                 <span>{item.mentor}</span>
               </h4>
               <ul className="p-0 my-3">

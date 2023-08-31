@@ -41,3 +41,51 @@ nav {
   font-weight: 600;
   color: #7dba28;
 }
+.bi-list,
+.bi-x-lg {
+  font-size: 19px;
+  cursor: pointer;
+  display: none;
+}
+/*  Media Query  */
+@media (max-width: 800px) {
+  .navigation {
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffffb6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    justify-content: end;
+    display: none;
+  }
+  .bi-list,
+  .bi-x-lg {
+    font-size: 19px;
+    cursor: pointer;
+    display: block;
+  }
+  .navigation.show {
+    display: flex;
+  }
+  .navigation.show .navigation__list {
+    transform: translateX(0);
+  }
+  .navigation__list {
+    width: 50vw;
+    height: 100vh;
+    transform: translateX(100%);
+    transition: 0.4s;
+    top: 0;
+    right: 0;
+    flex-direction: column;
+    background-color: #fff;
+    position: relative;
+    padding-top: 50px;
+  }
+  .bi-x-lg {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+  }
+}

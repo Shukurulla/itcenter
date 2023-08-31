@@ -19,13 +19,13 @@ export const navItems = [
 
 export const logo = "https://pc.uz/storage/publications/October2020/q.png";
 
-export const homeImage =
-  "https://itcenter12.netlify.app/static/media/home.a8b9ec59a49fbf242abe.png";
+export const homeImage = "https://it-park.uz/images/IT-Academy_%20Data.png";
 
 export const aboutImage =
   "https://xojelitcenter.netlify.app/image/about-img.png";
 
-  export const operatorImg = 'https://cdni.iconscout.com/illustration/premium/thumb/contact-us-3483601-2912018.png'
+export const operatorImg =
+  "https://cdni.iconscout.com/illustration/premium/thumb/contact-us-3483601-2912018.png";
 
 export const courseInfo = [
   {
