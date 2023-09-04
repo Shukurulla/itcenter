@@ -24,12 +24,12 @@ const Contact = () => {
 
   const postUser = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3000/add-course", {
+    fetch("http://localhost:3001/add-user", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, phone: tel, course, date: new Date() }),
+      body: JSON.stringify({ name, phone: tel, course }),
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
