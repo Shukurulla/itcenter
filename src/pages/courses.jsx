@@ -1,16 +1,15 @@
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { courses } from "../constants";
 import { CourseBox } from "../components";
 import { Context } from "../context";
 
 const Courses = () => {
-
   document.title = "IT Center | Kurslar";
 
-  const {setActive} = useContext(Context)
+  const { setActive } = useContext(Context);
   useEffect(() => {
-    setActive(2)
-  }, [])
+    setActive(2);
+  }, []);
 
   return (
     <div className="container py-5">
@@ -18,7 +17,7 @@ const Courses = () => {
       <div className="row justify-content-center">
         {courses.map((item) => (
           <div
-            className="col-lg-3 col-md-4 col-sm-6 col-12 my-3"
+            className="col-lg-4 col-md-6 col-sm-6 col-12 my-3"
             key={item.course}
           >
             <CourseBox

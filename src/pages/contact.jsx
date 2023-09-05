@@ -41,7 +41,7 @@ const Contact = () => {
       <h2 className="text-center py-3">Contact</h2>
 
       <div className="row align-items-center">
-        <div className="col-lg-5 col-md-12">
+        <div className="col-lg-5 col-md-12 mt-3">
           <div className="retseption-box">
             <div className="operator-image">
               <img src={operatorImg} className="w-100" alt="OperatorImage" />
@@ -76,7 +76,7 @@ const Contact = () => {
             </div>
           </div>
         </div>
-        <div className="col-lg-7 col-md-12">
+        <div className="col-lg-7 col-md-12 mt-3">
           <div className="form-box">
             <h3>Yozilmoqchi bo`lgan kursni belgilang</h3>
             <form onSubmit={(e) => postUser(e)}>

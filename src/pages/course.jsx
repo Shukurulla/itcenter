@@ -18,17 +18,17 @@ const Course = () => {
     setShowMenu(!showMenu);
   };
 
-  const {setActive} = useContext(Context)
+  const { setActive } = useContext(Context);
   useEffect(() => {
-    setActive(2)
-  }, [])
+    setActive(2);
+  }, []);
 
   return (
     <div className="course py-5">
       <div className="container py-5">
         {course.map((item) => (
           <div className="row" key={item.name}>
-            <div className="col-lg-7 col-md-7 col-sm-12">
+            <div className="col-lg-7 col-md-12 mt-3 col-sm-12">
               <div className="course-nav">
                 <div
                   className="select-course-name fw-bold fs-5 pointer"
@@ -99,7 +99,7 @@ const Course = () => {
                 </li>
               </ul>
             </div>
-            <div className="col-lg-5 col-md-5 col-sm-12 text-center">
+            <div className="col-lg-5 col-md-12 mt-3 col-sm-12 text-center">
               <div className="img">
                 <img className="w-100 mb-4" src={item.image} alt="" />
                 <Link to={"/contact"}>
