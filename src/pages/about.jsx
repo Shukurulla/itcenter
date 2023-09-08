@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import { CourseInfo, TeamBox } from "../components";
-import { aboutImage, courseInfo, teams } from "../constants";
+import { aboutImage, courseInfo, teams,courses } from "../constants";
 import { Context } from "../context";
 
 const About = () => {

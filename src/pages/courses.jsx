@@ -23,7 +23,7 @@ const Courses = () => {
             <CourseBox
               briefInfo={item.brief_info}
               courseName={item.name}
-              image={item.image}
+              image={item.courseImage}
               slug={item.slug}
             />
           </div>

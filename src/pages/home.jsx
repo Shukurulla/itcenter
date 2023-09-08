@@ -46,7 +46,7 @@ const Home = () => {
             {course.map((item) => (
               <div className="col-lg-4 col-md-6 col-sm-12" key={item.name}>
                 <CourseBox
-                  image={item.image}
+                  image={item.courseImage}
                   courseName={item.name}
                   briefInfo={item.brief_info}
                   slug={item.slug}

@@ -101,7 +101,7 @@ const Course = () => {
             </div>
             <div className="col-lg-5 col-md-12 mt-3 col-sm-12 text-center">
               <div className="img">
-                <img className="w-100 mb-4" src={item.image} alt="" />
+                <img className="w-100 mb-4" src={item.courseImage} alt="" />
                 <Link to={"/contact"}>
                   <Button>Kursga Yozilish</Button>
                 </Link>
