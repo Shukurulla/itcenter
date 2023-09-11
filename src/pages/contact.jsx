@@ -4,6 +4,8 @@ import "../styles/contact.css";
 import { courses } from "../constants";
 import Button from "../ui/button";
 import { Context } from "../context";
+import Modal from "../components/modal";
+import failurePng from "../../public/pngegg.png";
 // import {useNavigate} from 'react-router-dom'
 
 const Contact = () => {
@@ -13,9 +15,27 @@ const Contact = () => {
   const [name, setName] = useState("");
   const [tel, setTel] = useState("");
   const [course, setCourse] = useState("Android");
-
+  const [modal, setModal] = useState(false);
+  const [message, setMessage] = useState([]);
   const [open, setOpen] = useState(false);
-  // const navigate = useNavigate()
+
+  const msg = [
+    {
+      status: "success",
+      message: "Tez orada hodimlarimiz siz bilan boglanishadi",
+      label: "Bosh sahifaga qaytish",
+      path: "/",
+      image:
+        "https://www.freeiconspng.com/thumbs/success-icon/success-icon-10.png",
+    },
+    {
+      status: "danger",
+      message: "Notogri malumot kirittingiz",
+      label: "Qayta urunish",
+      path: "/contact",
+      image: failurePng,
+    },
+  ];
 
   const { setActive } = useContext(Context);
   useEffect(() => {
@@ -24,19 +44,27 @@ const Contact = () => {
 
   const postUser = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3001/add-user", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, phone: tel, course }),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-    // navigate('/')
+    if (isNaN(tel) && name.length < 2) {
+      return <Modal msg={message[1]} />;
+    } else {
+      fetch("http://localhost:3001/add-user", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, phone: tel, course }),
+      })
+        .then((res) => res.json())
+        .then((data) => (data && setModal(true), setMessage(msg[0])))
+        .catch(
+          (err) => (err && setModal(true), setMessage(msg[1]), console.log(err))
+        );
+    }
   };
 
-  return (
+  return modal ? (
+    <Modal msg={message} setModal={setModal} />
+  ) : (
     <div className="container py-5">
       <h2 className="text-center py-3">Contact</h2>
 

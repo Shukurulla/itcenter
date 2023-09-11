@@ -174,3 +174,42 @@ body li {
   width: 100%;
   height: 100%;
 }
+.modal-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #ffffff;
+  position: absolute;
+  top: 0;
+  z-index: 999;
+  left: 0;
+}
+.message-box {
+  width: 380px;
+  text-align: center;
+  box-shadow: 1px 1px 20px #949494;
+  padding: 20px;
+  border-radius: 15px;
+  padding-bottom: 30px;
+}
+.message-box .image {
+  width: 150px;
+  margin: 20px auto;
+
+  height: 150px;
+}
+.message-box .image img {
+  width: 100%;
+}
+.message-box h4 {
+  padding: 10px 0;
+}
+
+.message-box a {
+  padding: 10px 25px;
+  background-color: #7dba28;
+  color: #fff;
+  border-radius: 10px;
+}

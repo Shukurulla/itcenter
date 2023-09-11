@@ -18,7 +18,7 @@ const Courses = () => {
         {courses.map((item) => (
           <div
             className="col-lg-4 col-md-6 col-sm-6 col-12 my-3"
-            key={item.course}
+            key={item.name}
           >
             <CourseBox
               briefInfo={item.brief_info}

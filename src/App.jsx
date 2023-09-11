@@ -4,10 +4,14 @@ import "./styles/app.css";
 import { About, Course, Courses, Home, Contact } from "./pages";
 import { useState } from "react";
 import { Context } from "./context";
+import { courses } from "./constants";
 
 const App = () => {
-  const [active, setActive] = useState(0)
-  const value = { active, setActive }
+  const [active, setActive] = useState(0);
+  const value = { active, setActive };
+
+  
+
   return (
     <>
       <Context.Provider value={value}>

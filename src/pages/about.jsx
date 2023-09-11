@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import { CourseInfo, TeamBox } from "../components";
-import { aboutImage, courseInfo, teams,courses } from "../constants";
+import { aboutImage, courseInfo, mentors } from "../constants";
 import { Context } from "../context";
 
 const About = () => {
@@ -28,11 +28,8 @@ const About = () => {
               molestias.
             </p>
             <div className="row py-4  ">
-              {courseInfo.map((item) => (
-                <div
-                  className="col-lg-4  col-md-4 col-sm-4  mt-3"
-                  key={item.title}
-                >
+              {courseInfo.map((item, idx) => (
+                <div className="col-lg-4  col-md-4 col-sm-4  mt-3" key={idx}>
                   <CourseInfo
                     key={item.title}
                     title={item.title}
@@ -50,17 +47,9 @@ const About = () => {
         <div className="container">
           <h2 className="py-3"> Meet Our Team</h2>
           <div className="row justify-content-center">
-            {teams.map((item) => (
-              <div
-                className="col-lg-3 col-md-6 col-sm-12 my-3"
-                key={item.image}
-              >
-                <TeamBox
-                  name={item.name}
-                  job={item.job}
-                  image={item.image}
-                  social={item.social}
-                />
+            {mentors.map((item) => (
+              <div className="col-lg-3 col-md-6 col-sm-12 my-3">
+                <TeamBox item={item}/>
               </div>
             ))}
           </div>
