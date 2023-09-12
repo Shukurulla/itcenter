@@ -1,27 +1,20 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { courses } from "../constants";
 import { Button } from "../ui";
-import { Context } from "../context";
+import { useSelector } from "react-redux";
 
 const Course = () => {
   const { slug } = useParams();
   const [showMenu, setShowMenu] = useState(false);
-  const course = courses.filter((c) => c.slug === slug);
 
-  course.map((item) => {
-    document.title = `${item.name} kursi`;
-  });
+  const {courses} = useSelector(state => state.course)
+
+  const course = courses.filter(c => c.slug == slug)
 
   const changeCourse = (name) => {
     document.title = `${name} kursi`;
     setShowMenu(!showMenu);
   };
-
-  const { setActive } = useContext(Context);
-  useEffect(() => {
-    setActive(2);
-  }, []);
 
   return (
     <div className="course py-5">

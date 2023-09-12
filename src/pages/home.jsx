@@ -1,22 +1,18 @@
 import { useContext, useEffect, useState } from "react";
 import { homeImage } from "../constants";
 import { Button } from "../ui";
-import { Context } from "../context";
 import "../styles/home.css";
-import { courses } from "../constants";
 import CourseBox from "../components/course-box";
+import { useSelector } from "react-redux";
 
 const Home = () => {
   document.title = "Xojeli IT Center";
 
-  const { setActive } = useContext(Context);
-  const [course, setCourse] = useState([]);
 
-  useEffect(() => {
-    setActive(0);
-    setCourse(courses.slice(0, 3));
-  }, []);
-  return (
+  const {courses, isLoading} = useSelector(state => state.course)
+
+  return isLoading ? <p>Loading...</p> : (
+
     <>
       <div className="home container py-5">
         <div className="row py-5 align-items-center ">
@@ -43,7 +39,7 @@ const Home = () => {
         <div className="container py-5">
           <h2 className="text-center mb-3">Mashhur kurslarimiz</h2>
           <div className="row">
-            {course.map((item) => (
+            {courses.slice(0,3).map((item) => (
               <div className="col-lg-4 col-md-6 col-sm-12" key={item.name}>
                 <CourseBox
                   image={item.courseImage}

@@ -1,16 +1,22 @@
-import { useContext, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import { operatorImg } from "../constants";
 import "../styles/contact.css";
-import { courses } from "../constants";
 import Button from "../ui/button";
-import { Context } from "../context";
 import Modal from "../components/modal";
 import failurePng from "../../public/pngegg.png";
+import { useDispatch, useSelector } from "react-redux";
+import { userLoadingFailure, userLoadingStart, userLoadingSuccess } from "../slice/user";
+import { userService } from "../service/user-service";
+import { CourseService } from "../service/course-service";
+import { courseLoadingStart, courseLoadingSuccess } from "../slice/course";
 // import {useNavigate} from 'react-router-dom'
 
 const Contact = () => {
   document.title = "IT Center | Kontact";
 
+  const dispatch = useDispatch()
+
+  
   const [couseIndex, setCourseIndex] = useState(0);
   const [name, setName] = useState("");
   const [tel, setTel] = useState("");
@@ -19,6 +25,9 @@ const Contact = () => {
   const [message, setMessage] = useState([]);
   const [open, setOpen] = useState(false);
 
+
+  const courses = JSON.parse(localStorage.getItem('courses'))
+  console.log(courses);
   const msg = [
     {
       status: "success",
@@ -37,32 +46,31 @@ const Contact = () => {
     },
   ];
 
-  const { setActive } = useContext(Context);
-  useEffect(() => {
-    setActive(3);
-  }, []);
+  const user ={name:name,phone: tel,course}
 
-  const postUser = (e) => {
+  const postUser = async (e) => {
     e.preventDefault();
-    if (isNaN(tel) && name.length < 2) {
-      return <Modal msg={message[1]} />;
-    } else {
-      fetch("http://localhost:3001/add-user", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, phone: tel, course }),
-      })
-        .then((res) => res.json())
-        .then((data) => (data && setModal(true), setMessage(msg[0])))
-        .catch(
-          (err) => (err && setModal(true), setMessage(msg[1]), console.log(err))
-        );
-    }
+    dispatch(userLoadingStart())
+
+
+ 
+      try {
+        if(!isNaN(tel) && !name.length > 2){
+
+          const {data} = await userService.postUsers(user)
+          
+          dispatch(userLoadingSuccess(data))
+        }
+        
+      } catch (error) {
+        
+        dispatch(userLoadingFailure())
+      }
+      
+    
   };
 
-  return modal ? (
+  return !courses ? <p>loading...</p> : (  modal ? (
     <Modal msg={message} setModal={setModal} />
   ) : (
     <div className="container py-5">
@@ -151,7 +159,7 @@ const Contact = () => {
                             setCourse(courses[idx].name);
                           }}
                         >
-                          {item.name}
+                          {courses[idx].name}
                         </li>
                       ))}
                     </ul>
@@ -188,7 +196,7 @@ const Contact = () => {
         </div>
       </div>
     </div>
-  );
+  ))
 };
 
 export default Contact;

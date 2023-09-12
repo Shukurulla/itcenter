@@ -1,11 +1,9 @@
-import { useContext, useState } from "react";
+import {  useState } from "react";
 import { Link } from "react-router-dom";
 import { logo, navItems } from "../constants";
 import "../styles/header.css";
-import { Context } from "../context";
 
 const Header = () => {
-  const { active, setActive } = useContext(Context);
   const [show, setShow] = useState(false);
 
   return (
@@ -28,8 +26,6 @@ const Header = () => {
               >
                 <Link
                   to={item.path}
-                  className={`${active === idx ? "active" : ""}`}
-                  onClick={() => setActive(idx)}
                 >
                   {item.label}
                 </Link>

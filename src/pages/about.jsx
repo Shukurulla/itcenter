@@ -1,15 +1,37 @@
 import { useContext, useEffect } from "react";
 import { CourseInfo, TeamBox } from "../components";
-import { aboutImage, courseInfo, mentors } from "../constants";
-import { Context } from "../context";
+import { aboutImage} from "../constants";
+import { useSelector } from "react-redux";
 
 const About = () => {
   document.title = "IT Center | About";
 
-  const { setActive } = useContext(Context);
-  useEffect(() => {
-    setActive(1);
-  }, []);
+  const {courses} = useSelector(state => state.course)
+  const {mentors} = useSelector(state => state.mentor)
+  const {users} = useSelector(state => state.user)
+
+
+
+  const courseInfo = [
+    {
+      title: users.length,
+      desription: "Studenst",
+      color: "coral",
+      icon: "bi bi-person",
+    },
+    {
+      title: courses.length,
+      desription: "courses",
+      color: "coral",
+      icon: "bi bi-camera-video",
+    },
+    {
+      title: mentors.length,
+      desription: "Mentors",
+      color: "coral",
+      icon: "bi bi-person-circle`",
+    },
+  ];
 
   return (
     <>
@@ -47,8 +69,8 @@ const About = () => {
         <div className="container">
           <h2 className="py-3"> Meet Our Team</h2>
           <div className="row justify-content-center">
-            {mentors.map((item) => (
-              <div className="col-lg-3 col-md-6 col-sm-12 my-3">
+            {mentors.map((item, idx) => (
+              <div className="col-lg-3 col-md-6 col-sm-12 my-3" key={idx}>
                 <TeamBox item={item}/>
               </div>
             ))}

@@ -1,15 +1,11 @@
 import { useContext, useEffect } from "react";
-import { courses } from "../constants";
 import { CourseBox } from "../components";
-import { Context } from "../context";
+import { useSelector } from "react-redux";
 
 const Courses = () => {
   document.title = "IT Center | Kurslar";
 
-  const { setActive } = useContext(Context);
-  useEffect(() => {
-    setActive(2);
-  }, []);
+  const {courses} = useSelector(state => state.course)
 
   return (
     <div className="container py-5">
