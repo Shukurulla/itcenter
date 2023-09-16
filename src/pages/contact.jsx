@@ -9,6 +9,7 @@ import { userLoadingFailure, userLoadingStart, userLoadingSuccess } from "../sli
 import { userService } from "../service/user-service";
 import { CourseService } from "../service/course-service";
 import { courseLoadingStart, courseLoadingSuccess } from "../slice/course";
+import axios from "axios";
 // import {useNavigate} from 'react-router-dom'
 
 const Contact = () => {
@@ -52,16 +53,15 @@ const Contact = () => {
     e.preventDefault();
     dispatch(userLoadingStart())
 
-
- 
       try {
-        if(!isNaN(tel) && !name.length > 2){
+        if(!isNaN(tel) && !name.length < 2){
 
-          const {data} = await userService.postUsers(user)
+          const {data} = await axios.post('http://localhost:2000/add-user', {user})
           
           dispatch(userLoadingSuccess(data))
-        }
         
+        }
+
       } catch (error) {
         
         dispatch(userLoadingFailure())
