@@ -1,4 +1,4 @@
 import axios from "axios";
 
-axios.defaults.baseURL = 'http://localhost:2000'
-export default axios
+axios.defaults.baseURL = "https://it-center-server.onrender.com";
+export default axios;

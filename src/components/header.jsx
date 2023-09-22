@@ -1,11 +1,12 @@
-import {  useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { logo, navItems } from "../constants";
 import "../styles/header.css";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [show, setShow] = useState(false);
-
+  const { active } = useSelector((state) => state.ui);
   return (
     <header>
       <nav className="container">
@@ -26,6 +27,7 @@ const Header = () => {
               >
                 <Link
                   to={item.path}
+                  className={`${item.active === active ? "active" : ""}`}
                 >
                   {item.label}
                 </Link>

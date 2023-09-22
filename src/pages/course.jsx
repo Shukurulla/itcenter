@@ -1,15 +1,21 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Button } from "../ui";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { uiLoadingStart, uiLoadingSuccess } from "../slice/ui-slice";
 
 const Course = () => {
   const { slug } = useParams();
   const [showMenu, setShowMenu] = useState(false);
 
-  const {courses} = useSelector(state => state.course)
+  const { courses } = useSelector((state) => state.course);
 
-  const course = courses.filter(c => c.slug == slug)
+  const course = courses.filter((c) => c.slug == slug);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(uiLoadingStart());
+    dispatch(uiLoadingSuccess("courses"));
+  }, []);
 
   const changeCourse = (name) => {
     document.title = `${name} kursi`;

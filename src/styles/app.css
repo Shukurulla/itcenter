@@ -103,9 +103,13 @@ body li {
   overflow: hidden;
   border-radius: 10px 10px 0 0;
 }
+.course-box:hover .image img {
+  transform: scale(1.2) rotateZ(5deg);
+}
 .course-box .image img {
   width: 100%;
   height: 100%;
+  transition: 0.4s;
 }
 .course-box .info {
   padding: 15px;

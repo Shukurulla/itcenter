@@ -1,23 +1,31 @@
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { operatorImg } from "../constants";
 import "../styles/contact.css";
 import Button from "../ui/button";
 import Modal from "../components/modal";
 import failurePng from "../../public/pngegg.png";
 import { useDispatch, useSelector } from "react-redux";
-import { userLoadingFailure, userLoadingStart, userLoadingSuccess } from "../slice/user";
+import {
+  userLoadingFailure,
+  userLoadingStart,
+  userLoadingSuccess,
+} from "../slice/user";
 import { userService } from "../service/user-service";
 import { CourseService } from "../service/course-service";
 import { courseLoadingStart, courseLoadingSuccess } from "../slice/course";
 import axios from "axios";
+import { uiLoadingStart, uiLoadingSuccess } from "../slice/ui-slice";
 // import {useNavigate} from 'react-router-dom'
 
 const Contact = () => {
   document.title = "IT Center | Kontact";
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(uiLoadingStart());
+    dispatch(uiLoadingSuccess("contact"));
+  }, []);
 
-  
   const [couseIndex, setCourseIndex] = useState(0);
   const [name, setName] = useState("");
   const [tel, setTel] = useState("");
@@ -26,8 +34,7 @@ const Contact = () => {
   const [message, setMessage] = useState([]);
   const [open, setOpen] = useState(false);
 
-
-  const courses = JSON.parse(localStorage.getItem('courses'))
+  const courses = JSON.parse(localStorage.getItem("courses"));
   console.log(courses);
   const msg = [
     {
@@ -47,30 +54,28 @@ const Contact = () => {
     },
   ];
 
-  const user ={name:name,phone: tel,course}
+  const user = { name: name, phone: tel, course };
 
   const postUser = async (e) => {
     e.preventDefault();
-    dispatch(userLoadingStart())
+    dispatch(userLoadingStart());
 
-      try {
-        if(!isNaN(tel) && !name.length < 2){
+    try {
+      if (!isNaN(tel) && !name.length < 2) {
+        const { data } = await axios.post("http://localhost:2000/add-user", {
+          user,
+        });
 
-          const {data} = await axios.post('http://localhost:2000/add-user', {user})
-          
-          dispatch(userLoadingSuccess(data))
-        
-        }
-
-      } catch (error) {
-        
-        dispatch(userLoadingFailure())
+        dispatch(userLoadingSuccess(data));
       }
-      
-    
+    } catch (error) {
+      dispatch(userLoadingFailure());
+    }
   };
 
-  return !courses ? <p>loading...</p> : (  modal ? (
+  return !courses ? (
+    <p>loading...</p>
+  ) : modal ? (
     <Modal msg={message} setModal={setModal} />
   ) : (
     <div className="container py-5">
@@ -196,7 +201,7 @@ const Contact = () => {
         </div>
       </div>
     </div>
-  ))
+  );
 };
 
 export default Contact;

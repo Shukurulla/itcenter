@@ -1,16 +1,20 @@
 import { useContext, useEffect } from "react";
 import { CourseInfo, TeamBox } from "../components";
-import { aboutImage} from "../constants";
-import { useSelector } from "react-redux";
+import { aboutImage } from "../constants";
+import { useDispatch, useSelector } from "react-redux";
+import { uiLoadingStart, uiLoadingSuccess } from "../slice/ui-slice";
 
 const About = () => {
   document.title = "IT Center | About";
 
-  const {courses} = useSelector(state => state.course)
-  const {mentors} = useSelector(state => state.mentor)
-  const {users} = useSelector(state => state.user)
-
-
+  const { courses } = useSelector((state) => state.course);
+  const { mentors } = useSelector((state) => state.mentor);
+  const { users } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(uiLoadingStart());
+    dispatch(uiLoadingSuccess("about"));
+  }, []);
 
   const courseInfo = [
     {
@@ -71,7 +75,7 @@ const About = () => {
           <div className="row justify-content-center">
             {mentors.map((item, idx) => (
               <div className="col-lg-3 col-md-6 col-sm-12 my-3" key={idx}>
-                <TeamBox item={item}/>
+                <TeamBox item={item} />
               </div>
             ))}
           </div>

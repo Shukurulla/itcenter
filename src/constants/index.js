@@ -1,7 +1,3 @@
-
-
-
-
 export const users = JSON.parse(localStorage.getItem("users"));
 
 export const mentors = JSON.parse(localStorage.getItem("mentors"));
@@ -9,18 +5,22 @@ export const navItems = [
   {
     label: "Bosh Sahifa",
     path: "/",
+    active: "home",
   },
   {
     label: "Biz Haqimizda",
     path: "/about",
+    active: "about",
   },
   {
     label: "Kurslar",
     path: "/courses",
+    active: "courses",
   },
   {
     label: "Kontakt",
     path: "/contact",
+    active: "contact",
   },
 ];
 
@@ -33,5 +33,3 @@ export const aboutImage =
 
 export const operatorImg =
   "https://cdni.iconscout.com/illustration/premium/thumb/contact-us-3483601-2912018.png";
-
-

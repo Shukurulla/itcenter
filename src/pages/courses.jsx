@@ -1,11 +1,18 @@
 import { useContext, useEffect } from "react";
 import { CourseBox } from "../components";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { uiLoadingStart, uiLoadingSuccess } from "../slice/ui-slice";
 
 const Courses = () => {
   document.title = "IT Center | Kurslar";
 
-  const {courses} = useSelector(state => state.course)
+  const { courses } = useSelector((state) => state.course);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(uiLoadingStart());
+    dispatch(uiLoadingSuccess("courses"));
+  }, []);
 
   return (
     <div className="container py-5">
